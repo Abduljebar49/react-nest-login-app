@@ -1,5 +1,4 @@
-# Project Name
-
+# React Nest Fullstack Test Task
 ## Description
 
 This repository contains two folders: `nest-backend` and `react-frontend`. The project demonstrates authentication features on the React frontend, including login, signup, and validation. The backend, built with NestJS MongoDB, Mongoose, JWT, bycrpt and others, provides three main routes for authentication: `/api/auth/login`, `/api/auth/signup`, and `/api/auth/profile`.
