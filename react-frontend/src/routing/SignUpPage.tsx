@@ -30,7 +30,7 @@ const SignUpPage = () => {
       name: values.name,
       confirmPassword: values.password,
     };
-    sumbitData<SignUpModel>("/auth/signup", data, "/login");
+    sumbitData<SignUpModel>("/auth/signup", data, "/");
   };
 
   return (
