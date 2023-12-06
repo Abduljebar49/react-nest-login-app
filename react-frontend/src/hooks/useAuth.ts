@@ -5,7 +5,6 @@ const useAuth = () => {
       const data = JSON.parse(localData);
         return data;
     }
-  
     return null;
   };
   

@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import apiClient from "../services/api-client";
+import { CanceledError } from "axios";
 
-const useComponent = () => {
+const useComponent = <T>() => {
   const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState<T>();
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -29,6 +31,26 @@ const useComponent = () => {
       });
   };
 
+  const fetchData = (endpoint: string) => {
+    const controller = new AbortController();
+    setIsLoading(true);
+    apiClient
+      .get<T>(endpoint, { signal: controller.signal })
+      .then(({ data }) => {
+        setData(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        if (error instanceof CanceledError) return;
+        setIsLoading(false);
+      });
+      return () => controller.abort();
+  };
+
+  const logOut = () =>{
+    localStorage.removeItem("userToken");
+    navigate('/login')
+  }
   return {
     isLoading,
     setIsLoading,
@@ -39,7 +61,11 @@ const useComponent = () => {
     navigate,
     showConfirmPassword,
     setShowConfirmPassword,
-    sumbitData
+    sumbitData,
+    data,
+    setData,
+    fetchData,
+    logOut
   };
 };
 
