@@ -72,7 +72,7 @@ To run the frontend, navigate to the `react-frontend` directory and start the Re
 
 ```bash
 cd ../react-frontend
-npm run start
+npm run dev
 ```
 
 The React app will be accessible at the port in console.
