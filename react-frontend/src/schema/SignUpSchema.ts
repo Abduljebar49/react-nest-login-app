@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 const SignUpSchema = z.object({
-  name: z.string().min(3),
+  name: z.string().min(3,"Name must contain more than 3 characters"),
   email: z.string().email(),
   password: z
     .string()
