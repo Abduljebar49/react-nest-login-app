@@ -78,6 +78,3 @@ The React app will be accessible at the port in console.
 
 Feel free to explore the authentication features in the React app and the authentication routes in the NestJS backend.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
