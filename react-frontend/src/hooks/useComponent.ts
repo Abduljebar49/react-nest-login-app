@@ -6,6 +6,7 @@ const useComponent = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
 
   const sumbitData = <T>(endpoint:string,body: T,navigateTo:string='/login') => {
@@ -36,6 +37,8 @@ const useComponent = () => {
     showPassword,
     setShowPassword,
     navigate,
+    showConfirmPassword,
+    setShowConfirmPassword,
     sumbitData
   };
 };
